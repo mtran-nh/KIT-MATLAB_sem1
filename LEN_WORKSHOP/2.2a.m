@@ -1,16 +1,16 @@
 data = readtable('a.csv');
 R = data.R;
 U_Mess = data.U_Mess;
-U = U_Mess .* 2;
+U_R = U_Mess .* 2;
 
-I = U ./ R;
+I = U_R ./ R;
 
 figure;
-plot(U, I, 'LineWidth', 2);
+plot(U_R, I, 'LineWidth', 2);
 
-xlabel('U (V)');
+xlabel('U_R (V)');
 ylabel('I (A)');
 title('U-I-Kennlinie der Solarzelle');
 grid on;
 
-P = U .* I;
+P = U_R .* I;

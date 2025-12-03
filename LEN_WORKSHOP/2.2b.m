@@ -7,12 +7,12 @@ for n = 1:length(files)
     data = readmatrix(files{k});
     R = data.R;
     U_Mess = data.U_Mess;
-    U = U_Mess .* 2;
-    I = U ./ R;
-    plot(U, I, 'Color', colors{n}, 'LineWidth', 2);
+    U_R = U_Mess .* 2;
+    I = U_R ./ R;
+    plot(U_R, I, 'Color', colors{n}, 'LineWidth', 2);
 end
 
-xlabel('U (V)');
+xlabel('U_R (V)');
 ylabel('I (A)');
 title('U-I-Kennlinien für 3 Lichtquellen');
 legend('Lichtquelle 1', 'Lichtquelle 2', 'Lichtquelle 3');
