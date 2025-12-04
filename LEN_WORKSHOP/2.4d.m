@@ -1,15 +1,20 @@
+clearvars;
+clc;
+close all;
+
 C = 100 * e-9; %faraday
 R = 500; %ohm, nur fuer Entladung
 
 %ladungsvorgang solarzelle laedt Kondensator
 ladung_data = readtable('filename.csv');
 t_ladung = ladung_data.Zeit;
-U_ladung = ladung_data.Spannung;
+%U = UMess *2
+U_ladung = ladung_data.Spannung .* 2;
 
 %Entladung ueber R=500ohm
 entladung_data = readtable('entladungsfile.csv');
 t_entladung = entladung_data.Zeit;
-U_entladung = entladung_data.Spannung;
+U_entladung = entladung_data.Spannung .* 2; 
 
 %BSP 
 %Absolute Zeit
