@@ -22,4 +22,3 @@ grid on;
 
 E_Joule = trapz(t, P);
 E_Wh = E_Joule ./ 3600;
-
