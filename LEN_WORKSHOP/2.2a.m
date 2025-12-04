@@ -1,3 +1,7 @@
+clearvars;
+clc;
+close all;
+
 data = readtable('a.csv');
 R = data.R;
 U_Mess = data.U_Mess;

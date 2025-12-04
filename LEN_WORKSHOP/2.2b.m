@@ -1,3 +1,7 @@
+clearvars;
+clc;
+close all;
+
 files = {'1stlight.csv', '2ndlight.csv', '3rdlight.csv'}
 colors = {'r', 'b', 'g'}
 

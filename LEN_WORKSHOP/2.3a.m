@@ -1,3 +1,7 @@
+clearvars;
+clc;
+close all;
+
 R = 1000;
 data = readtable('table.csv');
 time = data.time;
