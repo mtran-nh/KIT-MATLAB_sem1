@@ -2,19 +2,23 @@ clearvars;
 clc;
 close all;
 
-data = readtable('a.csv');
+%filename einsetzen, data exportieren
+data = readtable('LED_1.csv');
+
+U_Mess = data.channel2;
 R = data.R;
-U_Mess = data.U_Mess;
 U_R = U_Mess .* 2;
 
 I = U_R ./ R;
 
+%graph
 figure;
 plot(U_R, I, 'LineWidth', 2);
 
 xlabel('U_R (V)');
 ylabel('I (A)');
-title('U-I-Kennlinie der Solarzelle');
+title('U-I-Kennlinie der Solarzelle mit LED');
 grid on;
 
+%Leistung
 P = U_R .* I;
