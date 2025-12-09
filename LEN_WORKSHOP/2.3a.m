@@ -2,27 +2,34 @@ clearvars;
 clc;
 close all;
 
-R = 1000;
-data = readtable('table.csv');
-time = data.time;
-U_Mess = data.U_Mess;
+%Daten einlesen
+R = 1000; %ohm
+data = readtable('langzeitsmessung.csv');
+time = data.time; %sekunden
+U_Mess = data.channel2;
 U_R = U_Mess .* 2;
-P = (U_R .^ 2) ./ R;
+P = (U_R .^ 2) ./ R; %Watt
 
+%Spannung
 figure;
-suplot(2,1,1);
+subplot(2,1,1);
 plot(time, U_R);
 xlabel('Zeit (s)');
 ylabel('Spannung (V)');
 title('Spannungsverlauf über 2 Stunden U_R(t)');
 grid on;
+legend('U_R(t)', 'Location', 'best');
 
+%Leistung
 subplot(2,1,2);
 plot(time, P);
 xlabel('Zeit (s)');
-ylabel('Power (W)');
+ylabel('Leistung (W)');
 title('Leitsungsverlauf über 2 Stunden P(t)');
 grid on;
+legend('P(t)', 'Location', 'best');
 
-E_Joule = trapz(t, P);
+%Energie berechnen
+E_Joule = trapz(time, P);
 E_Wh = E_Joule ./ 3600;
+fprintf('E = %.4f Wh\n', E_Wh);
